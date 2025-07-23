@@ -1,0 +1,350 @@
+* { box-sizing: border-box; }
+
+body{
+    margin:0;
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+    color:#333;
+    background: #f5f8ff;
+}
+
+.app-header{
+    background: #ffffff;
+    padding:16px  20px;
+    border-bottom: 1px solid #ddd;
+    /* 패딩은  테두리  안쪽 여백이고 마진은 바깥여백. border-방향: 두께 스타일 색상 */
+}
+
+/* 로고 텍스트 */
+.logo {
+  margin: 0;               /* 기본 여백 제거 */
+  font-size: 1.4rem;       /* 글자 크기 */
+}
+
+/* 로고 안의 링크 스타일 */
+.logo a {
+  text-decoration: none;   /* 밑줄 제거 */
+  color: #2f6fff;          /* 파란색 (임시) */
+  font-weight: 700;        /* 굵게 */
+}
+
+/* ====hero section==== */
+.hero{
+    background: linear-gradient( #2f6fff 0%, #6ca8ff 100%);
+    color:#fff;
+    text-align: center;
+
+    padding: 60px 20px;   /* 안쪽 여백: 위아래 60, 좌우 20 */
+    border-radius: 16px;  /* 모서리 둥글게 */
+    margin: 24px 16px;    /* 바깥 여백: 위아래 24, 좌우 16 */
+}
+.hero h2 {
+  margin: 0 0 8px;      /* 아래쪽만 8px 여백 */
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+.hero p {
+  margin: 0 0 24px;
+  opacity: 0.9;         /* 살짝 연하게 */
+}
+
+/* ===== 버튼 공통 스타일 ===== */
+.btn-primary {
+  display: inline-block;          /* 너비/높이 조절 가능해짐 */
+  padding: 12px 20px;
+  background: #fff;
+  color: #2f6fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+/* ===== 뷰 공통 ===== */
+.view {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px 60px;
+}
+
+/* hidden 속성 기본 지원하지만, 혹시나 해서 */
+[hidden] { display: none !important; }
+
+/* 힐링 배너(간단 예시) */
+.top-banner.healing {
+  background: linear-gradient(180deg, #2f6fff 0%, #6ca8ff 100%);
+  color: #fff;
+  text-align: center;
+  padding: 48px 20px 80px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+
+/* 클럽 리스트 카드 */
+.card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  margin-top: -40px; /* 배너 위로 겹치게 */
+}
+
+/* 동아리 항목 */
+.club-item {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+.club-item:last-child {
+  border-bottom: none;
+}
+.thumb {
+  width: 56px;
+  height: 56px;
+  background: #ccc;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.club-text h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+.club-text p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* 홈에 있는 간단 목록 */
+.dest-list-simple ul {
+  padding-left: 20px;
+}
+.dest-list-simple a {
+  color: #2f6fff;
+  text-decoration: none;
+}
+.dest-list-simple a:hover {
+  text-decoration: underline;
+}
+
+
+/* ===== 브랜드(로고/타이틀) 블록 ===== */
+.brand {
+  text-align: center;
+  padding: 32px 0 20px;
+}
+.brand-title {
+  margin: 8px 0 4px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111;
+}
+.brand-sub {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+/* ===== 고정 5칸 여행지 ===== */
+.dest-fixed {
+  margin: 28px 0;
+}
+.dest-fixed h3 {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* 그리드 배치: 화면 크기에 맞춰 자동 줄바꿈 */
+.dest-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  /* repeat(x,y)는 x번반복해서y규칙의트랙을만드는함수 2,100px이면 100픽셀짜리열2개 */
+  /* 지금은  열은  화면을 꽉채울 수 있는만큼 채워서 최소/최대넓이만큼 열을 갖도록함 */
+  justify-items: center;
+}
+
+
+/* 공통 카드 스타일 */
+.dest-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #333;
+  padding: 12px 8px;
+  border-radius: 12px;
+  transition: background .2s;
+  width: 100%;
+  max-width: 140px;
+}
+.dest-card:hover {
+  background: #eef3ff;
+}
+.dest-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.dest-card span {
+  font-size: 0.65rem;
+  /* 1rem이  16px정도 */
+  white-space: nowrap;
+}
+
+
+@media (max-width: 480px) {
+  .dest-grid {
+    gap: 7px;                         /* 간격 7px로 */
+  }
+  .dest-card {
+    padding: 4px 0;                   /* 내부 여백 축소 */
+    max-width: none;                  /* 폭 제한 해제 */
+  }
+  .dest-card img {
+    width: 42px; height: 42px;        /* 아이콘 더 작게 */
+  }
+  .dest-card span {
+    font-size: 0.7rem;
+    white-space: nowrap;              /* 글자 줄바꿈 방지 */
+  }
+}
+
+
+/* ===== 인기 여행지 캐러셀 ===== */
+.popular {
+  margin: 32px 0 40px;
+}
+.popular h3 {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* 가로 스크롤 영역 */
+.pop-strip {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 8px 0 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 스크롤바 숨김(선택) */
+.pop-strip::-webkit-scrollbar { display: none; }
+.pop-strip { scrollbar-width: none; }
+
+/* 카드 기본 */
+.pop-card {
+  position: relative;
+  flex: 0 0 75%;            /* 기본 폭: 화면의 75% 정도 */
+  max-width: 320px;
+  scroll-snap-align: center;
+
+  /* background:transparent;
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);  */
+
+  transform: scale(.85);
+  opacity: .45;
+  transition: transform .25s, opacity .25s;
+}
+
+/* 이미지 */
+.pop-card img {
+  width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  aspect-ratio: 1;       /* 비율 유지 (브라우저 지원) */
+}
+
+/* 제목 */
+.pop-title {
+  margin: 10px 0 0;
+  font-size: .9rem;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.heart-btn {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: rgba(255,255,255,.9);
+  border: none;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  line-height: 1;
+  color: #ff426f;
+  display: flex; gap: 4px; align-items: center;
+  transition: opacity .15s, background .15s, color .15s;
+}
+.heart-btn:hover { opacity: 0.85; }
+
+/* 클릭된 상태 */
+.heart-btn.on {
+  background: #ff426f;
+  color: #fff;
+}
+
+.pop-meta {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #333;
+}
+.pop-meta .like-count { font-weight: 600; }
+
+
+/* active 카드(가운데) */
+.pop-card.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* 모바일 더 줄이기 */
+@media (max-width: 480px) {
+  .pop-card { flex: 0 0 85%; }
+}
+
+
+/* ===== 캐러셀 점 인디케이터 ===== */
+.pop-dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 12px;
+}
+.pop-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d0d4e0;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+.pop-dots .dot.on {
+  background: #2f6fff;
+  transform: scale(1.3);
+}

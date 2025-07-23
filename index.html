@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta  charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,  initial-scale=1.0"/>
+        <title>WITH  TOUR</title>
+        <link  rel="stylesheet" href="assets/css/style.css"/>
+    </head>
+    <body>
+        <header class="app-header">
+            <h1  class="logo"><a href="#top">WITHTOUR</a></h1>
+        </header>
+        <main id="view-home" class="view">
+            <!-- 위드 투어 로고 넣기 -->
+        <section class="brand">
+            <h1 class="brand-title">WithTour</h1>
+            <p class="brand-sub">나에게 맞는 동아리를 찾아 떠나는 여행</p>
+        </section>
+<!-- 여행지  선택 다섯개 -->
+        <section class="dest-fixed">
+  <h3>여행지를 선택하세요</h3>
+  <div class="dest-grid">
+    <a href="#healing" class="dest-card">
+      <img src="assets/img/healing.png" alt="힐링아일랜드" />
+      <span>힐링아일랜드</span>
+    </a>
+    <a href="#battle" class="dest-card">
+      <img src="assets/img/battle.png" alt="배틀스타디움" />
+      <span>배틀스타디움</span>
+    </a>
+    <a href="#tech" class="dest-card">
+      <img src="assets/img/tech.png" alt="테크노밸리" />
+      <span>테크노밸리</span>
+    </a>
+    <a href="#culture" class="dest-card">
+      <img src="assets/img/culture.png" alt="컬쳐빌리지" />
+      <span>컬쳐빌리지</span>
+    </a>
+    <a href="#disco" class="dest-card">
+      <img src="assets/img/disco.png" alt="디스코시티" />
+      <span>디스코시티</span>
+    </a>
+  </div>
+</section>
+
+<section class="popular">
+  <h3>세종대의 인기 여행지 ></h3>
+<div class="slider-wrap">
+  <div class="pop-strip" aria-label="인기 여행지 슬라이더">
+    <!-- 카드 1 -->
+    <article class="pop-card">
+      <button class="heart-btn" aria-label="좋아요">
+        ❤ <span class="count">0</span>
+      </button>
+      <img src="assets/img/pop1.png" alt="힐링아일랜드 대표 이미지" />
+      <h4 class="pop-title">힐링아일랜드</h4>
+    </article>
+
+    <!-- 카드 2 -->
+    <article class="pop-card">
+      <button class="heart-btn" aria-label="좋아요">
+        ♥ <span class="count">0</span>
+      </button>
+      <img src="assets/img/pop2.png" alt="배틀스타디움 대표 이미지" />
+      <h4 class="pop-title">배틀스타디움</h4>
+    </article>
+
+    <!-- 필요만큼 복제 -->
+    <article class="pop-card">
+      <button class="heart-btn" aria-label="좋아요">
+        ♥ <span class="count">0</span>
+      </button>
+      <img src="assets/img/pop3.jpg" alt="테크노밸리 대표 이미지" />
+      <h4 class="pop-title">테크노밸리</h4>
+    </article>
+
+    <article class="pop-card">
+      <button class="heart-btn" aria-label="좋아요">
+        ♥ <span class="count">0</span>
+      </button>
+      <img src="assets/img/pop4.jpg" alt="컬쳐빌리지 대표 이미지" />
+      <h4 class="pop-title">컬쳐빌리지</h4>
+    </article>
+
+    <article class="pop-card">
+      <button class="heart-btn" aria-label="좋아요">
+        ♥ <span class="count">0</span>
+      </button>
+      <img src="assets/img/pop5.jpg" alt="디스코시티 대표 이미지" />
+      <h4 class="pop-title">디스코시티</h4>
+    </article>
+    <div class="pop-dots" aria-label="슬라이드 인디케이터"></div>
+  </div>
+</div>
+</section>
+
+
+        </main>
+
+        <main id="view-healing" class="view" hidden>
+            <section class="top-banner healing">
+            <h2>힐링 아일랜드</h2>
+            <p>종교/봉사 분과</p>
+            </section>
+
+            <section class="club-list card">
+            <article class="club-item">
+                <div class="thumb"></div>
+                <div class="club-text">
+                <h4>죽순회</h4>
+                <p>다양한 경험을 접할 수 있는 세종대 중앙 봉사 동아리</p>
+                </div>
+            </article>
+            <!-- 같은 패턴으로 복제 -->
+            </section>
+
+            <p style="text-align:center; margin:40px 0;">
+            <a href="#home" class="btn-primary">← 돌아가기</a>
+            </p>
+        </main>
+
+        <!-- JS 연결 -->
+        <script src="assets/js/app.js"></script>
+        
+    </body>
+</html>
