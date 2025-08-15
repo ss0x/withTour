@@ -156,15 +156,33 @@ body{
   margin: 0 auto 8px;
 }
 
+.home-panel {
+  background: #fff;
+  border-radius: 50px 50px 0px 0px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  padding: 12px ;                    /* 카드 내부 여백 */
+  margin: 10px 0px 0px;             /* ⬅️ 위로 당기는 핵심! (음수 마진) */
+}
+
+
 /* ===== 고정 5칸 여행지 ===== */
 .dest-fixed {
-  margin: 28px 0;
+  padding-bottom: 5px;              /* 선과 아이콘 사이 여백 */
+  border-bottom: 1px solid #e6e9f0;  /* 경계선 */
+  margin-bottom: 10px;               /* 선과 다음 섹션 사이 여백 */
 }
 .dest-fixed h3 {
-  margin: 0 0 16px;
+  margin: 0 0 5px;
   text-align: center;
   font-size: 1rem;
   color: #333;
+}
+.dest-fixed h3::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: #e6e9f0;   /* 선 색상 */
+  margin: 12px 0 0;      /* 제목과 선 사이 간격 */
 }
 
 /* 그리드 배치: 화면 크기에 맞춰 자동 줄바꿈 */
@@ -227,10 +245,10 @@ body{
 
 /* ===== 인기 여행지 캐러셀 ===== */
 .popular {
-  margin: 32px 0 40px;
+  margin: 20px 0 40px;
 }
 .popular h3 {
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   font-size: 1rem;
   color: #333;
 }
