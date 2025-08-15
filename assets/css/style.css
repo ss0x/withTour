@@ -1,12 +1,23 @@
 * { box-sizing: border-box; }
 
+/* 전체 화면에 그라데이션 깔기 */
+
 body{
-    margin:0;
-    font-family: system-ui, sans-serif;
-    line-height: 1.6;
-    color:#333;
-    background: #f5f8ff;
+  margin:0;
+  font-family: system-ui, sans-serif;
+  line-height:1.6;
+  color:#333;
+
+  background: linear-gradient(
+    to bottom,
+    #3E45D0 0%,
+    #8D92E1 15%,
+    #ffffff 100%
+  );
+  background-repeat: no-repeat;
+   min-height: 100vh;
 }
+
 
 .app-header{
     background: #ffffff;
@@ -146,8 +157,8 @@ body{
 }
 .brand-sub {
   margin: 0;
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.7rem;
+  color: #ffffff;
 }
 .brand-icon {
   width: 42px;
@@ -161,7 +172,8 @@ body{
   border-radius: 50px 50px 0px 0px;
   box-shadow: 0 10px 24px rgba(0,0,0,.08);
   padding: 12px ;                    /* 카드 내부 여백 */
-  margin: 10px 0px 0px;             /* ⬅️ 위로 당기는 핵심! (음수 마진) */
+  margin: 10px -16px 0px;             /* ⬅️ 위로 당기는 핵심! (음수 마진) */
+  
 }
 
 
@@ -247,7 +259,7 @@ body{
 .popular {
   margin: 20px 0 40px;
 }
-.popular h3 {
+.popular h4 {
   margin: 0 0 10px;
   font-size: 1rem;
   color: #333;
@@ -294,13 +306,30 @@ body{
 
 /* 제목 */
 .pop-title {
-  margin: 10px 0 0;
+  margin: 10px 0 2px;    /* 아래 2px만 남기기 */
   font-size: .9rem;
   color: #222;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 600;
+  line-height: 1.2;      /* 제목 자체 줄간격도 조금 타이트하게 */
+}
+
+/* 평점은 얇게 */
+.pop-title .rating {
+  font-weight: 400;
+  color: #222;
+  margin-left: 6px;
+}
+
+/* pop-title 바로 다음에 오는 날짜만 간격 제어 */
+.pop-title + .date {
+  margin: 4px 0 0 6px;   /* 위 2px, 아래 0, 왼쪽 6px */
+  line-height: 1.2;
+  font-weight: 400;
+  color: #5E5E5E;
+  font-size: .8rem;      /* (선택) 날짜는 살짝 작게 */
 }
 
 .heart-btn {
@@ -363,6 +392,6 @@ body{
   transition: transform .2s, background .2s;
 }
 .pop-dots .dot.on {
-  background: #2f6fff;
+  background: #8D92E1;
   transform: scale(1.3);
 }
