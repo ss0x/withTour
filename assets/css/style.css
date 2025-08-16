@@ -7,7 +7,18 @@ body{
   font-family: system-ui, sans-serif;
   line-height:1.6;
   color:#333;
-
+  background: #fff;    
+  /* background: linear-gradient(
+    to bottom,
+    #3E45D0 0%,
+    #8D92E1 15%,
+    #ffffff 100%
+  );
+  background-repeat: no-repeat;
+   min-height: 100vh; */
+}
+/* 홈 뷰가 보일 때만 그라데이션 적용 */
+body:has(#view-home:not([hidden])){
   background: linear-gradient(
     to bottom,
     #3E45D0 0%,
@@ -15,28 +26,37 @@ body{
     #ffffff 100%
   );
   background-repeat: no-repeat;
-   min-height: 100vh;
+  min-height: 100vh;
 }
 
-
+/* 헤더를 가로 중앙 정렬 */
 .app-header{
-    background: #ffffff;
-    padding:16px  20px;
-    border-bottom: 1px solid #ddd;
-    /* 패딩은  테두리  안쪽 여백이고 마진은 바깥여백. border-방향: 두께 스타일 색상 */
+  padding: 10px 16px;               /* 헤더 높이 조절 */
+  display: flex;
+  justify-content: center;          /* 가로 중앙 */
+  align-items: center;               /* 세로 중앙 */
+  background: #fff;                  /* 필요 시 유지 */
+  border-bottom: 1px solid #ddd;     /* 필요 시 유지 */
 }
 
-/* 로고 텍스트 */
-.logo {
-  margin: 0;               /* 기본 여백 제거 */
-  font-size: 1.4rem;       /* 글자 크기 */
+/* 기본 여백 제거 */
+.logo{ margin: 0; }
+
+/* 링크/이미지 스타일 */
+.app-header .logo a{
+  display: inline-block;             /* 이미지만 포함 */
 }
 
-/* 로고 안의 링크 스타일 */
-.logo a {
-  text-decoration: none;   /* 밑줄 제거 */
-  color: #2f6fff;          /* 파란색 (임시) */
-  font-weight: 700;        /* 굵게 */
+.app-header .logo img{
+  height: 40px;                      /* ← 원하는 높이로 (예: 20~28px) */
+  width: auto;                       /* 비율 유지 */
+  display: block;                    /* 아래쪽 빈 공간 제거 */
+  object-fit: contain;
+}
+
+/* (선택) 모바일에서 더 작게 */
+@media (max-width: 480px){
+  .app-header .logo img{ height: 20px; }
 }
 
 /* ====hero section==== */
@@ -283,7 +303,7 @@ body{
 .pop-card {
   position: relative;
   flex: 0 0 75%;            /* 기본 폭: 화면의 75% 정도 */
-  max-width: 320px;
+  max-width: 250px;
   scroll-snap-align: center;
 
   /* background:transparent;
@@ -326,7 +346,7 @@ body{
 /* pop-title 바로 다음에 오는 날짜만 간격 제어 */
 .pop-title + .date {
   margin: 4px 0 0 6px;   /* 위 2px, 아래 0, 왼쪽 6px */
-  line-height: 1.2;
+  line-height: 1.0;
   font-weight: 400;
   color: #5E5E5E;
   font-size: .8rem;      /* (선택) 날짜는 살짝 작게 */
@@ -394,4 +414,61 @@ body{
 .pop-dots .dot.on {
   background: #8D92E1;
   transform: scale(1.3);
+}
+
+/* 이미지 + 버튼 가로 배치(폭이 좁아지면 자동 줄바꿈) */
+/* 한 줄 유지 + 높이 stretch */
+.cta-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:nowrap;          /* 줄바꿈 금지 */
+  align-items:stretch;        /* ★ 두 아이템 높이를 동일하게 */
+}
+
+
+/* 이미지 링크 */
+.img-btn{
+  display: inline-block;
+  width: clamp(300px, 30vw, 1000px); /* 반응형: 최소~최대 폭 */
+  border-radius: 14px;
+  overflow: hidden;                 /* 둥근 모서리에 이미지 맞추기 */
+  flex: 0 0 auto;                   /* 이미지 폭은 고정 */
+}
+.img-btn img{
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform .2s;
+}
+.img-btn:hover img{ transform: scale(1.02); }
+
+/* 옆의 내부 링크 버튼(채움형) */
+.btn-solid{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  background: #8D92E1;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 12px;
+
+  /* 남는 공간은 버튼이 차지 → 글자 길어도 예쁘게 */
+  flex: 1 1 200px;               
+  min-height: 48px;               /* 터치 목표 크기 확보 */
+  text-align: center;
+  transition: opacity .2s, transform .05s;
+}
+.btn-solid:hover{ opacity: .9; }
+.btn-solid:active{ transform: translateY(1px); }
+
+/* 모바일(폭 좁을 때) → 세로 스택 */
+@media (max-width: 480px){
+  .cta-row{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .img-btn{ width: 100%; max-width: 420px; }  /* 이미지가 행 전체 */
+  .btn-solid{ width: 100%; }                   /* 버튼도 행 전체 */
 }
