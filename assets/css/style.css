@@ -107,13 +107,15 @@ body:has(#view-home:not([hidden])){
 
 /* 힐링 배너(간단 예시) */
 .top-banner.healing {
-  background: linear-gradient(180deg, #2f6fff 0%, #6ca8ff 100%);
-  color: #fff;
+  background: url("../img/pop_healing.png") center/cover no-repeat;
+  opacity: 0.7;
+  color: #0b0a5a;
   text-align: center;
   padding: 48px 20px 80px;
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
 }
+
 
 /* 클럽 리스트 카드 */
 .card {
@@ -121,7 +123,9 @@ body:has(#view-home:not([hidden])){
   border-radius: 24px;
   padding: 24px 20px;
   box-shadow: 0 8px 24px rgba(0,0,0,.08);
-  margin-top: -40px; /* 배너 위로 겹치게 */
+  margin-top: -40px; /* 위로 겹치기 */
+  position: relative;
+  z-index: 1;        /* 배너(z-index:0)보다 높게 */
 }
 
 /* 동아리 항목 */
